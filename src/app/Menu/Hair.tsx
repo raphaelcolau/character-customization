@@ -12,8 +12,8 @@ import { SBr } from '../_components/SBr';
 
 export function MenuHair() {
     const color = '#707476';
-    const [selected, setSelected] = useState<ElementProps>({element: hairs[0].key, color: hairColors[0]});
     const gender: GENDER = useSelector((state: RootState) => state.character.gender)
+    const [selected, setSelected] = useState<ElementProps>({element: hairs.filter((hair) => hair.gender === gender)[0].key, color: hairColors[0]});
     const currentHair = useSelector((state: RootState) => state.character.hair)
     const dispatch = useDispatch();
   
