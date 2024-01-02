@@ -5,7 +5,7 @@ const StyledButton = styled('button')<{selected?: boolean, tab?: boolean, color:
     ${props => `
         width: ${props.tab ? `${props.selected ? '290px' : '280px'}` : '280px'};
         height: ${props.tab ? '70px': '50px'};
-        background-color: ${props.selected ? '#080C10' : 'transparent'};
+        background-color: ${props.selected ? '#080C1060' : 'transparent'};
         color: ${props.color};
         border: 2px solid ${props.color};
         border-right: ${props.tab ? `8px solid ${props.color}` : 'auto'};

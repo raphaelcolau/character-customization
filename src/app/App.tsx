@@ -90,7 +90,7 @@ function App() {
     app: {
       width: '100vw',
       height: '100vh',
-      backgroundColor: '#030303',
+      background: 'radial-gradient(circle, rgba(36,47,58,1) 0%, rgba(3,3,3,1) 100%)',
       color: '#FFFEFF',
       overflow: 'hidden',
       Position: 'relative',
