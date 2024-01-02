@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import SButton from './_components/SButton';
+import { BiMaleFemale } from "react-icons/bi";
+import { GiHairStrands } from "react-icons/gi";
+import { IoColorPaletteOutline } from "react-icons/io5";
+
+
 
 function View() {
   const styles = {
@@ -18,12 +23,100 @@ function View() {
   )
 }
 
+const Title = styled.p`
+  color: #707476;
+  font-size: 1.8em;
+  user-select: none;
+  width: fit-content;
+`
+
 function MenuGender() {
-  return <div>MenuGender</div>
+  const color = '#707476';
+
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
+
+      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%'}}>
+        <BiMaleFemale color={color} size={30}/>
+        <Title>Choisi ton genre</Title>
+      </div>
+
+      <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
+        <SButton selected={true}>Homme</SButton>
+        <SButton>Femme</SButton>
+      </div>
+
+    </div>
+  )
 }
 
+const SBr = () => <div style={{width: '100%', height: '2px', backgroundColor: '#707476'}} />
+
+
+
 function MenuHair() {
-  return <div>MenuHair</div>
+  const color = '#707476';
+
+  const hairColor = [
+    '#FFD6A9',
+    '#E3A86F',
+    '#D38138',
+    '#FFEEB9',
+    '#F6D059',
+    '#F5B31A',
+    '#965C29',
+    '#AC5300',
+    '#783200',
+    '#D6D6D6',
+    '#918D98',
+    '#4F4A55',
+    '#F29159',
+    '#9E3D3B',
+    '#584B39',
+    '#FF8746',
+    '#FF6000',
+    '#DF3800',
+    '#2F2E2E',
+    '#FFF392',
+    '#FFE700',
+    '#FFE3F8',
+    '#FFB0E0',
+    '#3A1705',
+    '#774320',
+    '#CC8B33',
+    '#E5BA6A',
+    '#F4D987',
+    '#71584A',
+    '#AC8964',
+    '#333333',
+    '#111111',
+  ];
+
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
+
+      <SBr />
+      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
+        <GiHairStrands color={color} size={30}/>
+        <Title>Choisi tes cheveux</Title>
+      </div>
+
+      <SBr />
+      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
+        <IoColorPaletteOutline color={color} size={30}/>
+        <Title>Couleur des cheveux</Title>
+      </div>
+
+      <div style={{width: '100%', display: 'flex', flexWrap: 'wrap', gap: '5px'}}>
+        {hairColor.map((color, index) => (
+          <SButton key={index} square selected={index === 3}>
+            <div style={{width: '30px', height: '30px', backgroundColor: color}} />
+          </SButton>
+        ))}
+      </div>
+
+    </div>
+  )
 }
 
 function MenuEyes() {
@@ -42,27 +135,29 @@ function MenuShape() {
   return <div>MenuShape</div>
 }
 
+const ControllerContainer = styled.div`
+  width: 900px;
+  height: 80vh;
+  color: #FFFEFF;
+  Position: absolute;
+  top: calc(50vh - 40vh);
+  right: 3vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+`
+
 function Controller() {
-  const [selected, setSelected] = React.useState('gender');
-  const ControllerContainer = styled.div`
-    width: 50vw;
-    height: 80vh;
-    color: #FFFEFF;
-    Position: absolute;
-    top: calc(50vh - 40vh);
-    left: 45%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  `
+  const [selected, setSelected] = useState('gender');
 
   const tab = [
-    { key: 'gender', value: 'Genre', Component: MenuGender },
-    { key: 'hair', value: 'Cheveux', Component: MenuHair },
-    { key: 'eyes', value: 'Yeux', Component: MenuEyes },
-    { key: 'eyesbrows', value: 'Sourcils', Component: MenuEyesbrows },
-    { key: 'beard', value: 'Barbe', Component: MenuBeard},
-    { key: 'shape', value: 'Corpulence', Component: MenuShape}
+    { key: 'gender', value: 'Genre', Component: <MenuGender /> },
+    { key: 'hair', value: 'Cheveux', Component: <MenuHair /> },
+    { key: 'eyes', value: 'Yeux', Component: <MenuEyes /> },
+    { key: 'eyesbrows', value: 'Sourcils', Component: <MenuEyesbrows /> },
+    { key: 'beard', value: 'Barbe', Component: <MenuBeard />},
+    { key: 'shape', value: 'Corpulence', Component: <MenuShape />}
   ]
 
 
@@ -75,7 +170,7 @@ function Controller() {
           display: 'flex',
           flexDirection: 'column',
           gap: '20px',
-          alignItems: 'center',
+          alignItems: 'flex-start',
         }}
       >
         <p style={{fontSize: '1.8em', width: '280px', userSelect: 'none'}}>
@@ -99,8 +194,8 @@ function Controller() {
 
       </div>
 
-      <div style={{width: '100%', height: '100%', padding: '20px', border: '1px solid green'}}>
-        {tab.filter(item => item.key === selected)[0].Component()}
+      <div style={{width: '100%', height: '100%', padding: '20px'}}>
+        {tab.filter(item => item.key === selected)[0].Component}
       </div>
 
     </ControllerContainer>
