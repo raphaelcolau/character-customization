@@ -90,15 +90,15 @@ export default function SButton({selected, children, tab, onClick, square}: {sel
     }
 
     return (
-            square ?
-            <StyledSquareButton onClick={handleClick} selected={selected}>
-                {children}
-            </StyledSquareButton>
-            : 
-            <StyledButton tab={tab} selected={selected} color={color} onClick={handleClick}>
-                <p style={{ fontSize: '1.6em', textTransform: 'uppercase', userSelect: 'none' }}>
-                {children}
-                </p>
-            </StyledButton>
+        square ?
+        <StyledSquareButton onClick={handleClick} selected={selected}>
+            {children}
+        </StyledSquareButton>
+        : 
+        <StyledButton tab={tab} selected={selected} color={color} onClick={handleClick}>
+            <p style={{ fontSize: '1.6em', textTransform: 'uppercase', userSelect: 'none' }}>
+            {children}
+            </p>
+        </StyledButton>
     )
   }
