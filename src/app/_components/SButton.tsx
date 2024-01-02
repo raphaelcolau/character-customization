@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function SButton({selected, children, tab}: {selected?: boolean, children: React.ReactNode, tab?: boolean}) {
+export default function SButton({selected, children, tab, onClick}: {selected?: boolean, children: React.ReactNode, tab?: boolean, onClick?: () => void}) {
     const color = selected ? '#FFFEFF' : '#707476';
     const StyledButton = styled.button`
-      width: 250px;
+      width: 280px;
       height: ${tab ? '70px': '50px'};
       background-color: ${selected ? '#080C10' : 'transparent'};
-      color: #707476;
+      color: ${color};
       border: 2px solid ${color};
       border-right: ${tab ? `8px solid ${color}` : 'auto'};
       transition: 0.2s;
@@ -34,7 +34,7 @@ export default function SButton({selected, children, tab}: {selected?: boolean, 
     const handleClick = () => {
       const audio = new Audio('/assets/sounds/click.ogg');
       audio.play();
-
+      if (onClick) onClick();
     }
 
     return (
@@ -42,6 +42,7 @@ export default function SButton({selected, children, tab}: {selected?: boolean, 
         <p style={{
           fontSize: '1.6em',
           textTransform: 'uppercase',
+          userSelect: 'none',
         }}>
           {children}
         </p>
