@@ -1,42 +1,32 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import SButton from './_components/SButton';
-import { FaRegEye } from "react-icons/fa6";
+import { TbEyeClosed } from "react-icons/tb";
+import { IoColorPaletteOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { GENDER, ElementProps } from '../type/type';
+import { ElementProps } from '../type/type';
 import { Title } from './_components/Title';
 import MenuGender from './Menu/Gender';
-import { eyesColors } from './_assets/assets';
-import { setEyes } from '../store/Slice/Character';
+import { eyesBrown, hairColors } from './_assets/assets';
+import { setEyesbrows } from '../store/Slice/Character';
 import { SBr } from './_components/SBr';
 import { MenuHair } from './Menu/Hair';
 import MenuEyes from './Menu/Eye';
+import MenuEyesbrows from './Menu/Eyebrown';
 
 
 
 function View() {
-  const styles = {
-    view: {
-      width: '100vw',
-      height: '100vh',
-      color: '#FFFEFF',
-    },
-  }
-
-  return (
-    <div style={styles.view}>
-      View
-    </div>
-  )
-}
-
-function MenuEyesbrows() {
-  return <div>MenuEyesbrows</div>
+  return <div>View</div>
 }
 
 function MenuBeard() {
   return <div>MenuBeard</div>
+}
+
+function MenuSkin() {
+  return <div>MenuSKin</div>
 }
 
 function MenuShape() {
@@ -61,6 +51,7 @@ function Controller() {
 
   const tab = [
     { key: 'gender', value: 'Genre', Component: <MenuGender /> },
+    { key: 'skin', value: 'Peau', Component: <MenuSkin />},
     { key: 'hair', value: 'Cheveux', Component: <MenuHair /> },
     { key: 'eyes', value: 'Yeux', Component: <MenuEyes /> },
     { key: 'eyesbrows', value: 'Sourcils', Component: <MenuEyesbrows /> },

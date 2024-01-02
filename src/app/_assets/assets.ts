@@ -110,3 +110,12 @@ export const eyesColors = [
     '#76998D',
     '#B4CAD4',
 ];
+
+export const eyesBrown: AssetProps[] = [
+    {name: 'Normal', key: 'normal', assets: 'assets/textures/sourcils/normal.png'},
+    {name: 'Normal Haut', key: 'normal_top', assets: 'assets/textures/sourcils/normal_top.png'},
+    {name: 'Long', key: 'long', assets: 'assets/textures/sourcils/long.png'},
+    {name: 'Grand et Haut ', key: 'big_top', assets: 'assets/textures/sourcils/big_top.png'},
+    {name: 'Grand et Bas ', key: 'big_bottom', assets: 'assets/textures/sourcils/big_bottom.png'},
+    {name: 'Sans', key: 'without', assets: 'assets/textures/sourcils/without.png'},
+];
