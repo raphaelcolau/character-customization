@@ -71,8 +71,8 @@ const StyledSquareButton = styled('button')<{selected?: boolean}>`
             top: 0;
             left: 0;
             z-index: 10;
-            width: max(50%, 15px);
-            height: max(50%, 15px);
+            width: max(40%, 15px);
+            height: max(40%, 15px);
             background-color: #56A5E2;
             clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
         }
