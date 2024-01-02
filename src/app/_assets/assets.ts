@@ -77,4 +77,36 @@ export const hairColors = [
     '#AC8964',
     '#333333',
     '#111111',
-  ];
+];
+
+export const eyes: AssetProps[] = [
+    {name: 'Oeil 1', key: 'eye_1', assets: 'assets/textures/eyes/eyes.png'},
+];
+
+export const eyesColors = [
+    '#322D38',
+    '#49313D',
+    '#644243',
+    '#714448',
+    '#80624C',
+    '#85654A',
+    '#7D5246',
+    '#965D46',
+    '#766C4C',
+    '#8D7964',
+    '#5E4D47',
+    '#837150',
+    '#626E5B',
+    '#454A4A',
+    '#5E6750',
+    '#526E73',
+    '#646366',
+    '#A0948F',
+    '#6C7A75',
+    '#5385B5',
+    '#7A8FA2',
+    '#99B8B3',
+    '#79A4B3',
+    '#76998D',
+    '#B4CAD4',
+];

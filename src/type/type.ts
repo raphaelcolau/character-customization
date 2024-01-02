@@ -24,6 +24,6 @@ export type ElementProps = {
 export type AssetProps = {
     name: string;
     key: string;
-    gender: GENDER;
+    gender?: GENDER;
     assets: string;
 }
