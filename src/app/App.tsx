@@ -1,33 +1,19 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import SButton from './_components/SButton';
-import { GiBeard } from "react-icons/gi";
-import { IoColorPaletteOutline } from "react-icons/io5";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { ElementProps, GENDER } from '../type/type';
-import { Title } from './_components/Title';
+import { GENDER } from '../type/type';
 import MenuGender from './Menu/Gender';
-import { beards, hairColors } from './_assets/assets';
-import { setBeard } from '../store/Slice/Character';
-import { SBr } from './_components/SBr';
 import { MenuHair } from './Menu/Hair';
 import MenuEyes from './Menu/Eye';
 import MenuEyesbrows from './Menu/Eyebrown';
 import MenuBeard from './Menu/Beard';
+import MenuSkin from './Menu/Skin';
 
 
 function View() {
   return <div>View</div>
-}
-
-
-function MenuSkin() {
-  return <div>MenuSKin</div>
-}
-
-function MenuShape() {
-  return <div>MenuShape</div>
 }
 
 const ControllerContainer = styled.div`
@@ -49,16 +35,13 @@ function Controller() {
 
   const tab = [
     { key: 'gender', value: 'Genre', Component: <MenuGender /> },
-    { key: 'skin', value: 'Peau', Component: <MenuSkin />},
+    { key: 'skin', value: 'Corp', Component: <MenuSkin />},
     { key: 'hair', value: 'Cheveux', Component: <MenuHair /> },
     { key: 'eyes', value: 'Yeux', Component: <MenuEyes /> },
     { key: 'eyesbrows', value: 'Sourcils', Component: <MenuEyesbrows /> },
-    { key: 'shape', value: 'Corpulence', Component: <MenuShape />}
   ]
 
-  if (gender === GENDER.MALE) {
-    tab.splice(tab.length - 1, 0, { key: 'beard', value: 'Barbe', Component: <MenuBeard /> });
-  }
+  if (gender === GENDER.MALE) {tab.push({ key: 'beard', value: 'Barbe', Component: <MenuBeard /> })}
 
 
   return (

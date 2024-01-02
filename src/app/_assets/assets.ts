@@ -139,3 +139,39 @@ export const beards: AssetProps[] = [
     {gender: GENDER.MALE, name: 'Grande Rouflaquette', key: 'superside', assets: 'assets/textures/beard/superside.png'},
     {gender: GENDER.MALE, name: 'Super Rouflaquette', key: 'ultraside', assets: 'assets/textures/beard/ultraside.png'},
 ];
+
+export const skinColors = [
+    '#F6C68D',
+    '#E1A976',
+    '#C48F5F',
+    '#AD7646',
+    '#905B2F',
+    '#6C4527',
+    '#F5BF77',
+    '#EFA74C',
+    '#D59545',
+    '#ECCAAD',
+    '#EBAB85',
+    '#EC9476',
+    '#DECA94',
+    '#E1C578',
+    '#CEB067',
+    '#DDBF6E',
+    '#BF934D',
+    '#9C8869',
+    '#AA6952',
+    '#905039',
+    '#643523',
+    '#CBC2BA',
+    '#422918',
+];
+
+export const skinShape: AssetProps[] = [
+    {name: 'Normal', key: 'normal', assets: 'assets/textures/skin/men_normal_0.png'},
+    {name: 'Gros 1', key: 'fat_1', assets: 'assets/textures/skin/men_fat_1.png'},
+    {name: 'Gros 2', key: 'fat_2', assets: 'assets/textures/skin/men_fat_2.png'},
+    {name: 'Gros 3', key: 'fat_3', assets: 'assets/textures/skin/men_fat_3.png'},
+    {name: 'Musclé 1', key: 'muscle_1', assets: 'assets/textures/skin/men_muscle_1.png'},
+    {name: 'Musclé 2', key: 'muscle_2', assets: 'assets/textures/skin/men_muscle_2.png'},
+    {name: 'Musclé 3', key: 'muscle_3', assets: 'assets/textures/skin/men_muscle_3.png'},
+];
