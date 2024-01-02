@@ -5,7 +5,7 @@ import { GiBeard } from "react-icons/gi";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { ElementProps } from '../type/type';
+import { ElementProps, GENDER } from '../type/type';
 import { Title } from './_components/Title';
 import MenuGender from './Menu/Gender';
 import { beards, hairColors } from './_assets/assets';
@@ -45,6 +45,7 @@ const ControllerContainer = styled.div`
 
 function Controller() {
   const [selected, setSelected] = useState('gender');
+  const gender = useSelector((state: RootState) => state.character.gender);
 
   const tab = [
     { key: 'gender', value: 'Genre', Component: <MenuGender /> },
@@ -52,9 +53,12 @@ function Controller() {
     { key: 'hair', value: 'Cheveux', Component: <MenuHair /> },
     { key: 'eyes', value: 'Yeux', Component: <MenuEyes /> },
     { key: 'eyesbrows', value: 'Sourcils', Component: <MenuEyesbrows /> },
-    { key: 'beard', value: 'Barbe', Component: <MenuBeard />},
     { key: 'shape', value: 'Corpulence', Component: <MenuShape />}
   ]
+
+  if (gender === GENDER.MALE) {
+    tab.splice(tab.length - 1, 0, { key: 'beard', value: 'Barbe', Component: <MenuBeard /> });
+  }
 
 
   return (
