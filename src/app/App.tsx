@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import SButton from './_components/SButton';
-import { BiMaleFemale } from "react-icons/bi";
 import { GiHairStrands } from "react-icons/gi";
 import { IoColorPaletteOutline } from "react-icons/io5";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import { GENDER, AssetProps } from '../type/type';
+import { Title } from './_components/Title';
+import MenuGender from './Menu/Gender';
+import { hairs } from './_assets/assets';
 
 
 
@@ -23,32 +28,9 @@ function View() {
   )
 }
 
-const Title = styled.p`
-  color: #707476;
-  font-size: 1.8em;
-  user-select: none;
-  width: fit-content;
-`
 
-function MenuGender() {
-  const color = '#707476';
 
-  return (
-    <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
 
-      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%'}}>
-        <BiMaleFemale color={color} size={30}/>
-        <Title>Choisi ton genre</Title>
-      </div>
-
-      <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
-        <SButton selected={true}>Homme</SButton>
-        <SButton>Femme</SButton>
-      </div>
-
-    </div>
-  )
-}
 
 const SBr = () => <div style={{width: '100%', height: '2px', backgroundColor: '#707476'}} />
 
@@ -56,6 +38,7 @@ const SBr = () => <div style={{width: '100%', height: '2px', backgroundColor: '#
 
 function MenuHair() {
   const color = '#707476';
+  const gender = useSelector((state: RootState) => state.character.gender)
 
   const hairColor = [
     '#FFD6A9',
@@ -99,6 +82,14 @@ function MenuHair() {
       <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
         <GiHairStrands color={color} size={30}/>
         <Title>Choisi tes cheveux</Title>
+      </div>
+
+      <div>
+        {hairs.filter((hair) => hair.gender === gender).map((hair, index) => (
+          <SButton key={index} square selected={index === 3}>
+            <img src={hair.assets} alt="" style={{width: '100%', height: '100%'}} />
+          </SButton>
+        ))}
       </div>
 
       <SBr />
