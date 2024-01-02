@@ -1,29 +1,26 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import SButton from './_components/SButton';
-import { TbEyeClosed } from "react-icons/tb";
+import { GiBeard } from "react-icons/gi";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { ElementProps } from '../type/type';
 import { Title } from './_components/Title';
 import MenuGender from './Menu/Gender';
-import { eyesBrown, hairColors } from './_assets/assets';
-import { setEyesbrows } from '../store/Slice/Character';
+import { beards, hairColors } from './_assets/assets';
+import { setBeard } from '../store/Slice/Character';
 import { SBr } from './_components/SBr';
 import { MenuHair } from './Menu/Hair';
 import MenuEyes from './Menu/Eye';
 import MenuEyesbrows from './Menu/Eyebrown';
-
+import MenuBeard from './Menu/Beard';
 
 
 function View() {
   return <div>View</div>
 }
 
-function MenuBeard() {
-  return <div>MenuBeard</div>
-}
 
 function MenuSkin() {
   return <div>MenuSKin</div>

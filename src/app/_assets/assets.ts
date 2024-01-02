@@ -119,3 +119,23 @@ export const eyesBrown: AssetProps[] = [
     {name: 'Grand et Bas ', key: 'big_bottom', assets: 'assets/textures/sourcils/big_bottom.png'},
     {name: 'Sans', key: 'without', assets: 'assets/textures/sourcils/without.png'},
 ];
+
+export const beards: AssetProps[] = [
+    {gender: GENDER.MALE, name: 'Rasé', key: 'without', assets: 'assets/textures/beard/chauve.png'},
+    {gender: GENDER.MALE, name: '2 Jours', key: '2_day', assets: 'assets/textures/beard/2jours.png'},
+    {gender: GENDER.MALE, name: '3 Jours', key: '3_day', assets: 'assets/textures/beard/3jours.png'},
+    {gender: GENDER.MALE, name: '7 Jours', key: '7_day', assets: 'assets/textures/beard/7jours.png'},
+    {gender: GENDER.MALE, name: 'Grande', key: 'big', assets: 'assets/textures/beard/grande.png'},
+    {gender: GENDER.MALE, name: 'Longue', key: 'long', assets: 'assets/textures/beard/long.png'},
+    {gender: GENDER.MALE, name: 'Maria', key: 'mario', assets: 'assets/textures/beard/mario.png'},
+    {gender: GENDER.MALE, name: 'Mi longue', key: 'mid', assets: 'assets/textures/beard/mid.png'},
+    {gender: GENDER.MALE, name: 'Monopoly', key: 'monopoly', assets: 'assets/textures/beard/monopoly.png'},
+    {gender: GENDER.MALE, name: 'Moustache', key: 'moustache', assets: 'assets/textures/beard/moustache.png'},
+    {gender: GENDER.MALE, name: 'Jamais coupé', key: 'nevercut', assets: 'assets/textures/beard/nevercut.png'},
+    {gender: GENDER.MALE, name: 'Scientifique', key: 'science', assets: 'assets/textures/beard/science.png'},
+    {gender: GENDER.MALE, name: 'Courte', key: 'short', assets: 'assets/textures/beard/short.png'},
+    {gender: GENDER.MALE, name: 'Steve', key: 'steve', assets: 'assets/textures/beard/steve.png'},
+    {gender: GENDER.MALE, name: 'Rouflaquette', key: 'side', assets: 'assets/textures/beard/side.png'},
+    {gender: GENDER.MALE, name: 'Grande Rouflaquette', key: 'superside', assets: 'assets/textures/beard/superside.png'},
+    {gender: GENDER.MALE, name: 'Super Rouflaquette', key: 'ultraside', assets: 'assets/textures/beard/ultraside.png'},
+];
