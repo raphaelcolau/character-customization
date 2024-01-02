@@ -5,10 +5,12 @@ import { GiHairStrands } from "react-icons/gi";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { GENDER, AssetProps } from '../type/type';
+import { GENDER, ElementProps } from '../type/type';
 import { Title } from './_components/Title';
 import MenuGender from './Menu/Gender';
-import { hairs } from './_assets/assets';
+import { hairs, hairColors } from './_assets/assets';
+import { setHair } from '../store/Slice/Character';
+import { SBr } from './_components/SBr';
 
 
 
@@ -30,77 +32,57 @@ function View() {
 
 
 
-
-
-const SBr = () => <div style={{width: '100%', height: '2px', backgroundColor: '#707476'}} />
-
-
-
 function MenuHair() {
   const color = '#707476';
-  const gender = useSelector((state: RootState) => state.character.gender)
+  const [selected, setSelected] = useState<ElementProps>({element: hairs[0].key, color: hairColors[0]});
+  const gender: GENDER = useSelector((state: RootState) => state.character.gender)
+  const currentHair = useSelector((state: RootState) => state.character.hair)
+  const dispatch = useDispatch();
 
-  const hairColor = [
-    '#FFD6A9',
-    '#E3A86F',
-    '#D38138',
-    '#FFEEB9',
-    '#F6D059',
-    '#F5B31A',
-    '#965C29',
-    '#AC5300',
-    '#783200',
-    '#D6D6D6',
-    '#918D98',
-    '#4F4A55',
-    '#F29159',
-    '#9E3D3B',
-    '#584B39',
-    '#FF8746',
-    '#FF6000',
-    '#DF3800',
-    '#2F2E2E',
-    '#FFF392',
-    '#FFE700',
-    '#FFE3F8',
-    '#FFB0E0',
-    '#3A1705',
-    '#774320',
-    '#CC8B33',
-    '#E5BA6A',
-    '#F4D987',
-    '#71584A',
-    '#AC8964',
-    '#333333',
-    '#111111',
-  ];
+
+  const handleClick = (hair: ElementProps) => {
+    setSelected({element: hair.element, color: hair.color});
+    dispatch(setHair({element: hair.element, color: hair.color}));
+  }
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
+    <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%', gap: '15px'}}>
 
-      <SBr />
       <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
-        <GiHairStrands color={color} size={30}/>
+        <GiHairStrands color={color} size={60}/>
         <Title>Choisi tes cheveux</Title>
-      </div>
-
-      <div>
-        {hairs.filter((hair) => hair.gender === gender).map((hair, index) => (
-          <SButton key={index} square selected={index === 3}>
-            <img src={hair.assets} alt="" style={{width: '100%', height: '100%'}} />
-          </SButton>
-        ))}
-      </div>
-
-      <SBr />
-      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
-        <IoColorPaletteOutline color={color} size={30}/>
-        <Title>Couleur des cheveux</Title>
+        <SBr />
       </div>
 
       <div style={{width: '100%', display: 'flex', flexWrap: 'wrap', gap: '5px'}}>
-        {hairColor.map((color, index) => (
-          <SButton key={index} square selected={index === 3}>
+
+        {hairs.filter((hair) => hair.gender === gender).map((hair, index) => (
+          <SButton 
+            key={index}
+            square
+            selected={hair.key === currentHair.element}
+            onClick={() => handleClick({element: hair.key, color: selected.color})}
+          >
+            <img src={hair.assets} alt="" style={{width: '60px'}} />
+          </SButton>
+        ))}
+
+      </div>
+
+      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
+        <IoColorPaletteOutline color={color} size={60}/>
+        <Title>Couleur des cheveux</Title>
+        <SBr />
+      </div>
+
+      <div style={{width: '100%', display: 'flex', flexWrap: 'wrap', gap: '5px'}}>
+        {hairColors.map((color, index) => (
+          <SButton
+            key={index}
+            square
+            selected={color === selected.color}
+            onClick={() => handleClick({element: selected.element, color: color})}
+          >
             <div style={{width: '30px', height: '30px', backgroundColor: color}} />
           </SButton>
         ))}

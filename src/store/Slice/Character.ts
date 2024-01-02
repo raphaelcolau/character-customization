@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Character, ElementProps, GENDER } from '../../type/type';
+import { hairColors, hairs } from '../../app/_assets/assets';
 
 const initialState: Character = {
     firstName: '',
@@ -8,8 +9,8 @@ const initialState: Character = {
     age: 18,
     description: '',
     hair: {
-        element: '',
-        color: ''
+        element: hairs[0].key,
+        color: hairColors[0]
     },
     eyes: {
         element: '',
