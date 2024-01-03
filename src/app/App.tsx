@@ -31,7 +31,7 @@ function Controller() {
 
   const tab = [
     { key: 'gender', value: 'Genre', Component: <MenuGender /> },
-    { key: 'skin', value: 'Corp', Component: <MenuSkin />},
+    { key: 'skin', value: 'Corps', Component: <MenuSkin />},
     { key: 'hair', value: 'Cheveux', Component: <MenuHair /> },
     { key: 'eyes', value: 'Yeux', Component: <MenuEyes /> },
     { key: 'eyesbrows', value: 'Sourcils', Component: <MenuEyesbrows /> },
