@@ -96,19 +96,21 @@ export async function generateTexture(custom: Character): Promise<THREE.CanvasTe
                         loadImageAndDraw(eyesUrl, ctx, custom.eyes.color, 'color-burn').then(() => {
                             loadImageAndDraw('assets/textures/eyes/eyes_white.png', ctx).then(() => {
                                 loadImageAndDraw(eyesBrownUrl, ctx, custom.eyesbrows.color, 'color-dodge').then(() => {
+                                    loadImageAndDraw('assets/textures/mouth/mouth.png', ctx).then(() => {
 
-                                    if (custom.gender === GENDER.MALE) {
-                                        loadImageAndDraw(beardsUrl, ctx, custom.hair.color, 'color-dodge').then(() => {
+                                        if (custom.gender === GENDER.MALE) {
+                                            loadImageAndDraw(beardsUrl, ctx, custom.beard.color, 'color-dodge').then(() => {
+                                                const texture = new THREE.CanvasTexture(canvas);
+                                                texture.needsUpdate = true;
+                                                resolve(texture);
+                                            });
+                                        } else {
                                             const texture = new THREE.CanvasTexture(canvas);
                                             texture.needsUpdate = true;
                                             resolve(texture);
-                                        });
-                                    } else {
-                                        const texture = new THREE.CanvasTexture(canvas);
-                                        texture.needsUpdate = true;
-                                        resolve(texture);
-                                    }
+                                        }
 
+                                    });
                                 });
                             });
                         });
