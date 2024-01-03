@@ -10,11 +10,7 @@ import MenuEyes from './Menu/Eye';
 import MenuEyesbrows from './Menu/Eyebrown';
 import MenuBeard from './Menu/Beard';
 import MenuSkin from './Menu/Skin';
-
-
-function View() {
-  return <div>View</div>
-}
+import View from './View/View';
 
 const ControllerContainer = styled.div`
   width: 900px;
