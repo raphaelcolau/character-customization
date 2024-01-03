@@ -47,7 +47,7 @@ export default function MenuSkin() {
   
         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', width: '100%', marginTop: '-15px'}}>
           <IoColorPaletteOutline color={color} size={60}/>
-          <Title>Couleur ta couleur de peau</Title>
+          <Title>Couleur de ta peau</Title>
           <SBr />
         </div>
   
