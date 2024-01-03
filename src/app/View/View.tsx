@@ -83,7 +83,7 @@ function Scene() {
                     target={new Vector3(0, 1, 0)}
                     camera={cam as Camera}
                 />
-                <Stats />
+                {/* <Stats /> */}
 
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />
