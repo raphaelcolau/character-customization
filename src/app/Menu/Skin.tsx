@@ -40,7 +40,11 @@ export default function MenuSkin() {
               selected={skin.key === currentSkin.element}
               onClick={() => handleClick({element: skin.key, color: selected.color})}
             >
-              <img src={skin.assets} alt="" style={{width: '60px'}} />
+              {skin.icon ? 
+                <img src={skin.icon} alt={skin.name} style={{width: '60px'}} />
+                :
+                <img src={skin.assets} alt={skin.name} style={{width: '60px'}} />
+              }
             </SButton>
           ))}
   

@@ -167,11 +167,11 @@ export const skinColors = [
 ];
 
 export const skinShape: AssetProps[] = [
-    {name: 'Normal', key: 'normal', assets: 'assets/textures/skin/men_normal_0.png'},
-    {name: 'Gros 1', key: 'fat_1', assets: 'assets/textures/skin/men_fat_1.png'},
-    {name: 'Gros 2', key: 'fat_2', assets: 'assets/textures/skin/men_fat_2.png'},
-    {name: 'Gros 3', key: 'fat_3', assets: 'assets/textures/skin/men_fat_3.png'},
-    {name: 'Musclé 1', key: 'muscle_1', assets: 'assets/textures/skin/men_muscle_1.png'},
-    {name: 'Musclé 2', key: 'muscle_2', assets: 'assets/textures/skin/men_muscle_2.png'},
-    {name: 'Musclé 3', key: 'muscle_3', assets: 'assets/textures/skin/men_muscle_3.png'},
+    {name: 'Normal', key: 'normal', assets: 'assets/textures/skin/men_normal_0.png', icon: 'assets/textures/skin/icon_men_normal_0.png'},
+    {name: 'Gros 1', key: 'fat_1', assets: 'assets/textures/skin/men_fat_1.png', icon: 'assets/textures/skin/icon_men_fat_1.png'},
+    {name: 'Gros 2', key: 'fat_2', assets: 'assets/textures/skin/men_fat_2.png', icon: 'assets/textures/skin/icon_men_fat_2.png'},
+    {name: 'Gros 3', key: 'fat_3', assets: 'assets/textures/skin/men_fat_3.png', icon: 'assets/textures/skin/icon_men_fat_3.png'},
+    {name: 'Musclé 1', key: 'muscle_1', assets: 'assets/textures/skin/men_muscle_1.png', icon: 'assets/textures/skin/icon_men_muscle_1.png'},
+    {name: 'Musclé 2', key: 'muscle_2', assets: 'assets/textures/skin/men_muscle_2.png', icon: 'assets/textures/skin/icon_men_muscle_2.png'},
+    {name: 'Musclé 3', key: 'muscle_3', assets: 'assets/textures/skin/men_muscle_3.png', icon: 'assets/textures/skin/icon_men_muscle_3.png'},
 ];
