@@ -40,7 +40,11 @@ export default function MenuBeard() {
               selected={beard.key === currentBeard.element}
               onClick={() => handleClick({element: beard.key, color: selected.color})}
             >
-              <img src={beard.assets} alt="" style={{width: '60px'}} />
+              {beard.icon ? 
+                <img src={beard.icon} alt={beard.name} style={{width: '60px'}} />
+                :
+                <img src={beard.assets} alt={beard.name} style={{width: '60px'}} />
+              }
             </SButton>
           ))}
   

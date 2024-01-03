@@ -41,7 +41,11 @@ export function MenuHair() {
               selected={hair.key === currentHair.element}
               onClick={() => handleClick({element: hair.key, color: selected.color})}
             >
-              <img src={hair.assets} alt="" style={{width: '60px'}} />
+              {hair.icon ? 
+                <img src={hair.icon} alt={hair.name} style={{width: '60px'}} />
+                :
+                <img src={hair.assets} alt={hair.name} style={{width: '60px'}} />
+              }
             </SButton>
           ))}
   

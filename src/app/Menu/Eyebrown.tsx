@@ -40,7 +40,11 @@ export default function MenuEyesbrows() {
               selected={eyesbrowns.key === currentEyesbrowns.element}
               onClick={() => handleClick({element: eyesbrowns.key, color: selected.color})}
             >
-              <img src={eyesbrowns.assets} alt="" style={{width: '60px'}} />
+              {eyesbrowns.icon ? 
+                <img src={eyesbrowns.icon} alt={eyesbrowns.name} style={{width: '60px'}} />
+                :
+                <img src={eyesbrowns.assets} alt={eyesbrowns.name} style={{width: '60px'}} />
+              }
             </SButton>
           ))}
   

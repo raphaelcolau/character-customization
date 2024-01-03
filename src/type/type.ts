@@ -26,4 +26,5 @@ export type AssetProps = {
     key: string;
     gender?: GENDER;
     assets: string;
+    icon?: string;
 }
