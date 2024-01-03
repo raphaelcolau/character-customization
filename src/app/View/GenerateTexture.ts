@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Character } from '../../type/type';
+import { Character, GENDER } from '../../type/type';
 import { hairs, eyes, eyesBrown, beards, skinShape } from '../_assets/assets';
 
 
@@ -36,7 +36,8 @@ async function loadImageAndDraw(toDraw: string, ctx: CanvasRenderingContext2D, c
                                     //If pixel is not transparent
                                     if (pixel[3] !== 0) {
                                         //Apply the color
-                                        tempCtx.fillStyle = color;
+                                        const hexColor = color;
+                                        tempCtx.fillStyle = hexColor;
                                         tempCtx.fillRect(i, j, 1, 1);
                                     }
                                 }
@@ -45,13 +46,27 @@ async function loadImageAndDraw(toDraw: string, ctx: CanvasRenderingContext2D, c
                             tempCtx.globalCompositeOperation = mixType;
                             tempCtx.drawImage(img, 0, 0, 64, 64);
 
+                            // Draw the result using the alpha level of ctxBuffer as a mask
+                            for (let i = 0; i < 64; i++) {
+                                for (let j = 0; j < 64; j++) {
+                                    //Get the pixel color
+                                    const pixel = ctxBuffer.getImageData(i, j, 1, 1).data;
+                                    
+                                    //If pixel is not transparent
+                                    if (pixel[3] !== 0) {
+                                        const pixelData = tempCtx.getImageData(i, j, 1, 1).data;
+                                        const hexColor = `#${pixelData[0].toString(16)}${pixelData[1].toString(16)}${pixelData[2].toString(16)}${ctxBuffer.getImageData(i, j, 1, 1).data[3].toString(16)}`;
+                                        ctx.fillStyle = hexColor;
+                                        ctx.fillRect(i, j, 1, 1);
+                                    }
+                                }
+                            }
 
-                            ctx.drawImage(tempCanvas, 0, 0, 64, 64);
+                            // ctx.drawImage(tempCanvas, 0, 0, 64, 64);
                         }
                     } else {
                         ctx.drawImage(img, 0, 0, 64, 64);
                     }
-                    console.log(ctx.canvas.toDataURL());
                     resolve(ctx);
                 };
                 img.onerror = reject;
@@ -77,13 +92,23 @@ export async function generateTexture(custom: Character): Promise<THREE.CanvasTe
         if (ctx) {
             if (skinUrl && hairUrl && eyesUrl && eyesBrownUrl && beardsUrl) {
                 loadImageAndDraw(skinUrl, ctx, custom.skin.color, 'color-burn').then(() => {
-                    loadImageAndDraw(hairUrl, ctx, custom.hair.color, 'color-burn').then(() => {
-                        loadImageAndDraw(eyesUrl, ctx).then(() => {
-                            loadImageAndDraw(eyesBrownUrl, ctx).then(() => {
-                                loadImageAndDraw(beardsUrl, ctx).then(() => {
-                                    const texture = new THREE.CanvasTexture(canvas);
-                                    texture.needsUpdate = true;
-                                    resolve(texture);
+                    loadImageAndDraw(hairUrl, ctx, custom.hair.color, 'color-dodge').then(() => {
+                        loadImageAndDraw(eyesUrl, ctx, custom.eyes.color, 'color-burn').then(() => {
+                            loadImageAndDraw('assets/textures/eyes/eyes_white.png', ctx).then(() => {
+                                loadImageAndDraw(eyesBrownUrl, ctx, custom.eyesbrows.color, 'color-dodge').then(() => {
+
+                                    if (custom.gender === GENDER.MALE) {
+                                        loadImageAndDraw(beardsUrl, ctx, custom.hair.color, 'color-dodge').then(() => {
+                                            const texture = new THREE.CanvasTexture(canvas);
+                                            texture.needsUpdate = true;
+                                            resolve(texture);
+                                        });
+                                    } else {
+                                        const texture = new THREE.CanvasTexture(canvas);
+                                        texture.needsUpdate = true;
+                                        resolve(texture);
+                                    }
+
                                 });
                             });
                         });
